@@ -2,6 +2,9 @@ require('dotenv').config()
 
 export default {
   mode: 'universal',
+  env: {
+    LARAVEL_APP_URL: process.env.LARAVEL_APP_URL
+  },
   /*
   ** Headers of the page
   */
