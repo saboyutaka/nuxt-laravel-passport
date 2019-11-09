@@ -7,6 +7,7 @@ build: ## build develoment environment with laradock
 	docker-compose run --rm php php artisan key:generate
 	docker-compose run --rm php php artisan migrate
 	docker-compose run --rm php php artisan db:seed
+	docker-compose run --rm php php artisan passport:keys --force
 
 serve: ## Run Server
 	docker-compose up php
