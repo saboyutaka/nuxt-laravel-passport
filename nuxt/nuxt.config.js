@@ -39,6 +39,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   /*
   ** Build configuration
@@ -47,7 +49,24 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
+    }
+  },
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/callback',
+      home: '/home'
+    },
+    strategies: {
+      'laravel.passport': {
+        url: process.env.LARAVEL_APP_URL,
+        client_id: process.env.LARAVEL_PASSPORT_CLIENT_ID,
+        client_secret: process.env.LARAVEL_PASSPORT_CLIENT_SECRET,
+        userinfo_endpoint: process.env.LARAVEL_APP_URL + '/api/user'
+      },
     }
   }
 }
+
